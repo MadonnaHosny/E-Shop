@@ -1,0 +1,61 @@
+﻿@model OnlineShoppingApp.Models.Product
+
+
+
+<div class="tab-pane fade" id="tab-pane-3">
+    <div class="row">
+        <div class="col-md-6">
+            @* <h4 class="mb-4">1 review for @Model.Products[0].Name</h4> *@
+            @if (Model?.Comments != null)
+            {
+
+                @foreach (var comm in Model?.Comments)
+                {
+
+                    <div class="media mb-4">
+                        @*  <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"> *@
+                        <div class="media-body">
+                            <h6>@comm.AppUser.FirstName<small> - <i>@comm.Date</i></small></h6>
+                            <div class="text-primary mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <p>
+                                @comm.Text
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                }
+            }
+
+
+        </div>
+        <div class="col-md-6">
+            <h4 class="mb-4">Leave a review</h4>
+            <div class="d-flex my-3">
+                <partial name="_RatingPartialView" model="Model" />
+            </div>
+            <form asp-controller="Product" asp-action="InsertComment">
+                <input type="hidden" id="prodID" name="prodID" value="@Model.Id">
+                <div class="form-group">
+                    <label for="message">Your Review *</label>
+                    <textarea id="message" cols="30" rows="5" class="form-control" name="review"></textarea>
+                </div>
+
+                <div class="form-group mb-0">
+                    <input type="submit" value="Send Your Review" class="btn btn-primary px-3">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/RateProducts.js">
+
+</script>

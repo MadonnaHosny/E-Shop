@@ -1,0 +1,218 @@
+﻿[
+  {
+    "Name": "Cord Collared Shacket",
+    "Description": "Diamond quilted Corduroy shacket. Borg lining. Two- functional pockets with flaps. Long sleeves. Collar. Snap button front fastening. Machine washable. Main 100% Cotton. Lining 100% Polyester. Wadding 100% Polyester.",
+    "Price": 200.00,
+    "brandId": 1,
+    "categoryId": 1,
+    "Quantity": 10
+  },
+  {
+    "Name": "Essential Crew Neck T-Shirt",
+    "Description": "Our essential T-Shirts are the perfect easy-to-wear staples for your wardrobe. Made from pure cotton, each t-shirt features a crewneck collar and short sleeves, available in a range of stylish colours. 100% Cotton.",
+    "Price": 400.00,
+    "brandId": 1,
+    "categoryId": 1,
+    "Quantity": 0
+  },
+  {
+    "Name": "Lightweight Puffer Jacket",
+    "Description": "Lightweight and easy to pack for hiking adventures, this puffer jacket has a shower-resistant finish and functional zip pockets, finished with printed branding. Machine washable. 100% Polyester.",
+    "Price": 600.00,
+    "brandId": 3,
+    "categoryId": 1,
+    "Quantity": 0
+  },
+  {
+    "Name": "Hoodie",
+    "Description": "Introducing our zip-through hoodie - a staple piece designed to keep you comfortable whilst keeping things casual. Made from a blend of cotton that's oh-so-soft, it's brushed inside to ensure maximum comfort. 87% Cotton, 13% Recycled polyester.",
+    "Price": 500.00,
+    "brandId": 2,
+    "categoryId": 1,
+    "Quantity": 10
+  },
+  {
+    "Name": "Fuller Bust Denim Jacket",
+    "Description": "This timeless denim jacket has been designed to suit a fuller bust, featuring a button-up fastening, long sleeves, dual chest pockets and a classic collar.Machine washable. 94% Cotton, 5% Polyester, 1% Lycra® Elastane.",
+    "Price": 420.00,
+    "brandId": 4,
+    "categoryId": 2,
+    "Quantity": 0
+  },
+  {
+    "Name": "Wrap Front Denim Skirt",
+    "Description": "Upgrade your denim this season with this denim skort from Threadbare. With a belt loop waistband and traditional zip fly fastening, the skort has a wrap-around asymmetric hem that fastens with a metal button. 100% Cotton.",
+    "Price": 350.00,
+    "brandId": 3,
+    "categoryId": 2,
+    "Quantity": 10
+  },
+  {
+    "Name": "Tailored Midi Pencil Skirt",
+    "Description": "Our black tailored pencil midi skirt is the perfect wardrobe staple to take from the desk to after hours. Fully lined and tailored to perfection.Main 64% Polyester, 34% Viscose, 2% Elastane. Lining 100% Polyester.",
+    "Price": 720.00,
+    "brandId": 2,
+    "categoryId": 2,
+    "Quantity": 10
+  },
+  {
+    "Name": "Aden + Anais Dream Blanket Cot",
+    "Description": "This snuggly baby blanket is nothing less than dreamy. The softest baby blanket yet, the aden + anais dream blanket's uses go beyond cuddling, as it also makes a comfy surface to lay your little one on for tummy time, story time and much more! Fabric: 100% cotton muslin.",
+    "Price": 500.00,
+    "brandId": 5,
+    "categoryId": 3,
+    "Quantity": 10
+  },
+  {
+    "Name": "Yellow Broderie Top&Short Set",
+    "Description": "T-shirt Main 93% Cotton, 7% Elastane. Woven 100% Cotton. Shorts 93% Cotton, 7% Elastane.",
+    "Price": 530.00,
+    "brandId": 2,
+    "categoryId": 3,
+    "Quantity": 10
+  },
+  {
+    "Name": "Sparkle Stretch Bracelets Pack",
+    "Description": "Perfect for upgrading any look, this multipack of bracelets can be worn separately or stacked together, featuring sparkle detailing and a stretchy construction for comfortable wear.",
+    "Price": 150.00,
+    "brandId": 3,
+    "categoryId": 4,
+    "Quantity": 10
+  },
+  {
+    "Name": "Ordinary Hyaluronic Acid2%+B5",
+    "Description": "Hyaluronic Acid 2% + B5 provides instant plumping hydration to give softer, smoother, healthy-looking skin.. Pro-vitamin B5 helps support the formation of key skin barrier components like ceramides and fatty acids",
+    "Price": 49.00,
+    "brandId": 4,
+    "categoryId": 5,
+    "Quantity": 10
+  },
+  {
+    "Name": "Pro-Collagen Rose Discovery",
+    "Description": "Pro-Collagen Rose Micro Serum 30mlPro-Collagen Rose Marine Cream 15mlPro-Collagen Rose Cleansing Balm 20gTreat your skin to this indulgent cleansing and moisturising trio that delights the senses while delivering proven results to soften and hydrate.",
+    "Price": 62.00,
+    "brandId": 4,
+    "categoryId": 5,
+    "Quantity": 10
+  },
+  {
+    "Name": "Short Sleeve Polo Shirt",
+    "Description": "Perfect for casual or smart casual looks, this stylish polo shirt features a regular fit and a knitted construction, a button-up neck and a classic collar. 82% Cotton, 18% Nylon.",
+    "Price": 460.00,
+    "brandId": 3,
+    "categoryId": 1,
+    "Quantity": 10
+  },
+  {
+    "Name": "Twin Pocket Cotton Shacket",
+    "Description": "The perfect combination of a shirt and a jacket, this twin pocket workwear-inspired shacket is crafted from pure cotton with a pointed collar and a button-up fastening. 100% Cotton.",
+    "Price": 810.00,
+    "brandId": 2,
+    "categoryId": 1,
+    "Quantity": 10
+  },
+  {
+    "Name": "Essential V-Neck T-Shirt",
+    "Description": "Classic and cool, our men's v-neck t-shirt is a wardrobe staple. Made from soft cotton, the stylish silhouette will look great teamed with jeans and trainers for the perfect weekend look. 100% Cotton.",
+    "Price": 260.00,
+    "brandId": 1,
+    "categoryId": 1,
+    "Quantity": 10
+  },
+  {
+    "Name": "Threadbare Borg Lined Shacket",
+    "Description": "This long sleeve, check overshirt from Threadbare is borg lined and features two button up chest pockets and two side pockets. Main 100% Cotton. Lining 100% Polyester.",
+    "Price": 399.00,
+    "brandId": 2,
+    "categoryId": 1,
+    "Quantity": 10
+  },
+  {
+    "Name": "Lipsy Round Neck T-Shirt",
+    "Description": "Elevate your casual wardrobe with this relaxed style. Loose fit short sleeve t-shirt. Crew Neckline perfect for all occasions. 95% Polyester, 5% Elastane.",
+    "Price": 199.00,
+    "brandId": 3,
+    "categoryId": 2,
+    "Quantity": 10
+  },
+  {
+    "Name": "Oversized Cotton Shirt",
+    "Description": "There's no underestimating the versatility of a cotton shirt. Designed in an oversized fit, our cotton poplin shirt is a capsule wardrobe staple.",
+    "Price": 275.00,
+    "brandId": 2,
+    "categoryId": 2,
+    "Quantity": 10
+  },
+  {
+    "Name": "White Mini Summer Dress",
+    "Description": "Summer mode is well and truly on with our white broderie mini summer dress. Designed in a mini length with a floaty tiered skirt and v-neck wrapped style front, this feminine style features beautiful palm tree design broderie.",
+    "Price": 599.00,
+    "brandId": 3,
+    "categoryId": 2,
+    "Quantity": 10
+  },
+  {
+    "Name": "Ponte Blazer",
+    "Description": "Add some flair to your formal wear with our ponte blazer. A neutral camel tone colour is paired with a relaxed double-breasted design and with chic gold-tone details. Perfect for layering, complete your professional look by teaming it up with your shirt or blouse.",
+    "Price": 680.00,
+    "brandId": 1,
+    "categoryId": 2,
+    "Quantity": 10
+  },
+  {
+    "Name": "T-Shirt and Skirt Set(3m-7y)",
+    "Description": "Your little one will love this 2-piece set, featuring a short sleeve cotton t-shirt, alongside a flowy tutu skirt for a ballerina look.T-shirt 100% Cotton. Skirt Main 100% Nylon. Lining 92% Cotton, 8% Elastane",
+    "Price": 330.00,
+    "brandId": 1,
+    "categoryId": 3,
+    "Quantity": 10
+  },
+  {
+    "Name": "Dungarees & Bodysuit Baby Set",
+    "Description": "Take the fuss out of getting them ready, with this 2-piece dungarees and bodysuit set. T-shirt 100% Cotton. Dungaree Main 100% Cotton. Lining 100% Cotton.",
+    "Price": 290.00,
+    "brandId": 1,
+    "categoryId": 3,
+    "Quantity": 10
+  },
+  {
+    "Name": "Rectangular Chain Necklace",
+    "Description": "This unique rectangular link chain has a chunky-look, perfect as a statement accessory for a casual or formal outfit.",
+    "Price": 70.00,
+    "brandId": 2,
+    "categoryId": 4,
+    "Quantity": 10
+  },
+  {
+    "Name": "Silver Tone Crystal Y Necklace",
+    "Description": "Perfect for bridesmaids and extra glam occasions, this beautiful crystal Y drop necklace is perfect for wearing with tops or dresses that have a deeper neckline.92% Brass, 5% Glass, 2% Steel, 1% Cubic Zirconia.",
+    "Price": 89.00,
+    "brandId": 3,
+    "categoryId": 4,
+    "Quantity": 10
+  },
+  {
+    "Name": "Sterling Silver Ball Earrings",
+    "Description": "Freshen up your everyday earring rotation with our sterling silver dainty hoop earrings, featuring with orb detailing.  Dainty hoop earrings  ,Orb detailing  , Sterling silver",
+    "Price": 20.00,
+    "brandId": 4,
+    "categoryId": 4,
+    "Quantity": 10
+  },
+  {
+    "Name": "Men’s Silver Tag Necklace",
+    "Description": "A Stunning personalised men's necklace featuring a solid sterling silver tag hung from a sterling silver chain. Handmade by our in-house jewellers each tag charm features a hand-textured finish on one side and your chosen personalisation on the other.Made from: 925 sterling silver",
+    "Price": 100.00,
+    "brandId": 5,
+    "categoryId": 4,
+    "Quantity": 10
+  },
+  {
+    "Name": "Cleansing Balm 125ml",
+    "Description": "Clinique's #1 makeup remover in a silky balm formula, Take The Day Off™ Cleansing Balm gently dissolves makeup. Suitable for all skin types, this lightweight makeup remover balm quickly dissolves tenacious eye and face makeup and sunscreen.",
+    "Price": 190.00,
+    "brandId": 5,
+    "categoryId": 5,
+    "Quantity": 10
+  }
+]

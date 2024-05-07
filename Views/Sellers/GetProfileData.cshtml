@@ -1,0 +1,129 @@
+﻿@model OnlineShoppingApp.ViewModels.GetSellerProfileViewModel
+
+<link rel="stylesheet" href="~/phone/css/intlTelInput.css">
+
+<link rel="stylesheet" href="~/css/UserProfile/profile.css">
+<link rel="stylesheet" href="~/css/tooltip/tooltip.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<section id="contact-us" class="contact-us section">
+    <div class="container">
+        <div class="contact-head">
+            <div class="row" style="margin-left: 192px; width: 1096px;">
+                <div class="col-lg-8 col-12">
+                    <div class="form-main">
+                        <div class="title">
+                            @*        <h4>Get in touch</h4> *@
+                            @* <h3>Update your profile</h3> *@
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="">
+                                        <img src="~/UserImage/@Model.Image" asp-append-version="true" alt="Profile Image" class="user-image">
+                                        <div class="d-flex" style="margin-left: 44px;margin-top: 6px;">
+                                            <div class="text-primary mr-2">
+                                                @for (int i = 0; i < 5; i++)
+                                                {
+                                                    @if (Model.AvgRating >= i + 1)
+                                                    {
+                                                        <i class="fas fa-star fs-22"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="far fa-star fs-22"></i>
+                                                    }
+                                                }
+                                            </div>
+                                            @* <small class="pt-1">(99 Reviews)</small> *@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12" style="    padding-top: 41px;">
+                                    <div class="form-group">
+                                        <label asp-for="BusinessName" class="control-label"><h6>Business Name:</h6></label>
+                                        <label class="text-secondary fs-16">@Model.BusinessName</label>
+
+                                        @if (Model.IsVerified)
+                                        {
+                                            <i class="fas fa-check text-success mr-2 main-color"></i>
+
+                                        }
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label asp-for="VAT" class="control-label"><h6>VAT:</h6></label>
+                                        <label class="text-secondary fs-16">@Model.VAT</label>
+                                        <span asp-validation-for="VAT" class="text-danger"></span>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label asp-for="PhoneNumber" class="control-label"><h6>Phone Number:</h6></label>
+                                        <label class="text-secondary fs-16">@Model.PhoneNumber</label>
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+
+@*                                     <img src="~/PaperImage/@Model.Paper" asp-append-version="true" alt="Profile Image" class="user-image">
+ *@@*                                     <a class="btn btn-primary submit-btn main-color-background " asp-controller="Home" asp-action="Index" style="background-color: #F7941D !important; color:white;">Show Details</a>
+ *@
+                                </div>
+
+
+                            </div>
+                            @* <form asp-action="GetProfileData" method="get" enctype="multipart/form-data"> *@
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="form-group message">
+                                        <label asp-for="Description" class="control-label"><h6>Description:</h6></label>
+
+                                        <textarea asp-for="Description" class="form-control" readonly style=" border: none;resize: none;"></textarea>
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12 btn-wrapper">
+                                    <div class="form-group">
+                                        <a class="btn btn-primary submit-btn" style="left: 247px;bottom: -34px;  text-align: center;" asp-controller="Home" asp-action="Index">Back To Home</a>
+                                    </div>
+                                </div>
+                                @* </form> *@
+                            </div>
+                        </div>
+                    </div>
+@*                     <div class="col-lg-4 col-12">
+                        <div class="single-head">
+                            <div class="single-info">
+                                <i class="fa fa-phone"></i>
+                                <h4 class="title">Call us Now:</h4>
+                                <ul>
+                                    <li>+123 456-789-1120</li>
+                                    <li>+522 672-452-1120</li>
+                                </ul>
+                            </div>
+                            <div class="single-info">
+                                <i class="fa fa-envelope-open"></i>
+                                <h4 class="title">Email:</h4>
+                                <ul>
+                                    <li><a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a></li>
+                                    <li><a href="mailto:info@yourwebsite.com">support@yourwebsite.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="single-info">
+                                <i class="fa fa-location-arrow"></i>
+                                <h4 class="title">Our Address:</h4>
+                                <ul>
+                                    <li>KA-62/1, Travel Agency, 45 Grand Central Terminal, New York.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> *@
+                </div>
+            </div>
+        </div>
+</section>
+
+
+<script src="~/phone/js/intlTelInput.js"></script>
+
+<script src="~/js/UserProfile/profile.js"></script>

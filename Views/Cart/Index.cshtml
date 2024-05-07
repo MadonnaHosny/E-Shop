@@ -1,0 +1,184 @@
+﻿@using OnlineShoppingApp.Services
+@using OnlineShoppingApp.Services.Interfaces
+@using OnlineShoppingApp.ViewModels
+@inject OnlineShoppingApp.Repositories.Interfaces.IDeliveryMethodsRepo DeliveryMethodRepo
+
+@model List<OnlineShoppingApp.ViewModels.CartItemViewModel>
+@{
+    var httpContextAccessor = new HttpContextAccessor();
+    ICartService cartService = new CartService(httpContextAccessor);
+    List<DeliveryMethod> deliveryList = ViewBag.DeliveryMethods;
+    List<CartItemViewModel> items = Model;
+    int count = items.Count;
+    var deliveryitem = 0;
+    int DeliveryMethodId = DeliveryMethodRepo.GetbyName("FREE").Id;
+    List<Product> products = ViewBag.Products;
+
+}
+@section Links{
+    <style>
+        input.btn:hover{
+            background: #F7941D !important;
+        }
+    </style>
+}
+<h1>Cart Items</h1>
+
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a asp-controller="Home" asp-action="Index">Home<i class="ti-arrow-right"></i></a></li>
+                        <li class="active"><a href="blog-single.html">Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+<!-- Shopping Cart -->
+<div class="shopping-cart section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Shopping Summery -->
+                <table class="table shopping-summery">
+                    <thead>
+                        <tr class="main-hading">
+                            <th>PRODUCT</th>
+                            <th>NAME</th>
+                            <th class="text-center">UNIT PRICE</th>
+                            <th class="text-center">QUANTITY</th>
+                            <th class="text-center">TOTAL</th>
+                            <th class="text-center"><i class="ti-trash remove-icon"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var prod = products.FirstOrDefault(P => P.Id == item.Id);
+                            <tr>
+                                <td class="image" data-title="No"><img src="@item.PictureUrl" alt="#"></td>
+                                <td class="product-des" data-title="Description">
+                                    <p class="product-name"><a asp-controller="Product" asp-action="GetProduct" asp-route-id="@item.Id">@item.ProductName</a></p>
+                                    <p class="product-des">@item.Description</p>
+                                </td>
+                                <td class="price" data-title="Price"><span>$@item.Price</span></td>
+                                <td class="qty" data-title="Qty">
+                                    <!-- Input Order -->
+                                    <div class="input-group">
+                                        <div class="button minus">
+                                            <button type="button" class="btn btn-primary btn-number" data-type="minus" data-field="quant[@item.Id]">
+                                                <i class="ti-minus"></i>
+                                            </button>
+                                        </div>
+                                        <form method="post" action="@Url.Action("UpdateCart", "Cart")">
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <input type="text" name="quant[@item.Id]" class="input-number" data-min="1" data-max="@prod.Quantity" value="@item.Quantity" onchange="this.form.submit()">
+                                            
+                                        </form>
+                                        <div class="button plus">
+                                            <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[@item.Id]">
+                                                <i class="ti-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--/ End Input Order -->
+
+                                </td>
+                                <td class="total-amount" data-title="Total"><span>$@cartService.GetTotalPerProduct(item.Id)</span></td>
+                                <td class="action" data-title="Remove"><a asp-controller="Cart" asp-action="Delete" asp-route-id="@item.Id"><i class="ti-trash remove-icon"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <!--/ End Shopping Summery -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Total Amount -->
+                <div class="total-amount">
+                    <form method="post" id="deliveryForm" action="@Url.Action("ProceedToAddress","Cart")">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-5 col-12">
+                                <div class="left">
+                                    <div class="">
+                                        <label for="news">Delivery Method</label>
+                                        <br />
+                                        @foreach (var item in deliveryList)
+                                        {
+                                            if (item.ShortName=="FREE")
+                                            {
+                                                <input class="font-weight-bold " name="news" type="radio" value="@item.Id" data-delivery-cost="@item.DeliveryCost" checked />
+                                                <span class="p-2">@item.ShortName</span>
+                                                <span> @item.DeliveryCost.ToString("c")</span>
+                                                <span> (@item.DeliveryTime)</span>
+
+                                            }
+                                            else
+                                            {
+                                                <input class="font-weight-bold " name="news" type="radio" value="@item.Id" data-delivery-cost="@item.DeliveryCost" />
+                                                <span class="p-2">@item.ShortName</span>
+                                                <span> @item.DeliveryCost.ToString("c")</span>
+                                                <span> (@item.DeliveryTime)</span>
+                                            }
+                                            <br />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="text" id="selectedDeliveryId" name="DeliveryMethodId" value="@DeliveryMethodId" hidden>
+
+
+                            <div class="col-lg-4 col-md-7 col-12">
+                                <div class="right">
+                                    <ul>
+                                        <li class="cart-total-amount">Cart Subtotal<span>$ @cartService.GetTotal()</span></li>
+
+                                        <li>Shipping<span id="selected-shipping">$ 0</span></li>
+
+                                        <li class="last">You Pay<span>$ @cartService.GetTotal()</span></li>
+                                    </ul>
+
+                                    <div class="button5">
+
+                                        @if (cartService.GetCartItems().Count == 0)
+                                        {
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+                                                <strong>Holy guacamole!</strong>
+                                                Your Cart is Empty
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            <a class="btn" asp-controller="Home" asp-action="Index">Checkout</a>
+
+                                        }
+                                        else
+                                        {
+                                            <input type="submit" class="btn" style="background:#333;" value="Checkout" />
+
+                                            @* <a>Checkout</a> *@
+                                        }
+
+                                        <a class="btn" asp-controller="Home" asp-action="Index">Continue shopping</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--/ End Total Amount -->
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script src="~/js/cart.js"></script>
+}

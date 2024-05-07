@@ -1,0 +1,82 @@
+﻿@model IEnumerable< OnlineShoppingApp.Models.Seller >
+
+<div class="shopping-cart section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Shopping Summery -->
+                <table class="table shopping-summery">
+                    <thead>
+                        <tr class="main-hading">
+                            <th style="    padding-left: 73px;">
+                                @Html.DisplayNameFor(s => s.Image) 
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(s => s.BusinessName)
+                            </th>
+@*                             <th class="text-center">
+                                @Html.DisplayNameFor(s => s.Description)
+                            </th> *@
+                            <th class="text-center">
+                                @Html.DisplayNameFor(s => s.VAT)
+                            </th>
+                            <th>
+                                Show Details
+                            </th>
+                            @* <th class="text-center"><i class="ti-trash remove-icon"></i></th> *@
+                            <th>
+                                @* @Html.DisplayNameFor(s => s.Image) *@
+                            </th>
+                            <th>
+                                @* @Html.DisplayNameFor(s => s.Image) *@
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var seller in Model)
+                        {
+
+                            <tr>
+                                <td class="image" data-title="No">
+                                    <img src="~/UserImage/@seller.Image" asp-append-version="true" alt=" Profile Image" class="user-image" style="margin-left: 209px;">
+                                </td>
+
+                                <td class="product-des" data-title="Description" style="padding-left: 45px;">
+                                    <p class="product-name"><a >@seller.BusinessName</a></p>
+                                    <p class="product-des">@seller.Description</p>
+                                </td>
+
+                                <td class="price" data-title="Price"><span style="margin-left: 44px;">@seller.VAT </span></td>
+
+                                <td class="total-amount" data-title="Total">
+                                    <a class="btn btn-primary submit-btn main-color-background " asp-controller="Admins" asp-action="GetSellerToVerify" asp-route-id="@seller.Id" style="background-color: #F7941D !important; color:white;">Show Details</a>
+                                </td>
+@*                                 <td class="qty" data-title="Qty">
+                                    <!-- Input Order -->
+                                   <div class="input-group">
+                                        <div class="button minus">
+                                            <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                <i class="ti-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="100" value="1">
+                                        <div class="button plus">
+                                            <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                                <i class="ti-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div> 
+                                    <!--/ End Input Order -->
+                                </td> *@
+                                <td class="action" data-title="Remove">@* <a href="#"><i class="ti-trash remove-icon"></i></a> *@</td> 
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <!--/ End Shopping Summery -->
+            </div>
+        </div>
+
+    </div>
+</div>

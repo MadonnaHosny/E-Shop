@@ -1,0 +1,110 @@
+﻿[
+  {
+    "SellerId": 1,
+    "ProductId": 1
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 2
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 3
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 4
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 5
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 6
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 7
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 8
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 9
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 10
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 11
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 12
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 13
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 14
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 15
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 16
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 17
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 18
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 19
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 20
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 21
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 22
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 23
+  },
+  {
+    "SellerId": 2,
+    "ProductId": 24
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 25
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 26
+  },
+  {
+    "SellerId": 1,
+    "ProductId": 27
+  }
+]

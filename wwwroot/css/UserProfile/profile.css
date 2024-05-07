@@ -1,0 +1,35 @@
+﻿.user-image-container {
+    text-align: center;
+}
+
+.user-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.btn-wrapper {
+    position: relative;
+}
+
+.submit-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 15px;
+    background: #F7941D !important;
+    color: white !important;
+    width: 192px;
+}
+
+.fs-16 {
+    font-size: 16px !important;
+}
+
+.fs-22 {
+    font-size: 16px !important;
+}
+
+.main-color {
+    color: #F7941D !important;
+}

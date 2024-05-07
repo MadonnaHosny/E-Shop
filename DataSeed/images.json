@@ -1,0 +1,342 @@
+﻿[
+  {
+    "Source": "/images/Man11.jpg",
+    "IsMain": 1,
+    "ProductId": 1
+  },
+  {
+    "Source": "/images/Man12.webp",
+    "IsMain": 0,
+    "ProductId": 1
+  },
+  {
+    "Source": "/images/Man13.webp",
+    "IsMain": 0,
+    "ProductId": 1
+  },
+  {
+    "Source": "/images/Man21.webp",
+    "IsMain": 1,
+    "ProductId": 2
+  },
+  {
+    "Source": "/images/Man22.webp",
+    "IsMain": 0,
+    "ProductId": 2
+  },
+  {
+    "Source": "/images/Man23.webp",
+    "IsMain": 0,
+    "ProductId": 2
+  },
+  {
+    "Source": "/images/Man31.webp",
+    "IsMain": 1,
+    "ProductId": 3
+  },
+  {
+    "Source": "/images/Man32.webp",
+    "IsMain": 0,
+    "ProductId": 3
+  },
+  {
+    "Source": "/images/Man33.webp",
+    "IsMain": 0,
+    "ProductId": 3
+  },
+  {
+    "Source": "/images/Man41.webp",
+    "IsMain": 1,
+    "ProductId": 4
+  },
+  {
+    "Source": "/images/Man42.webp",
+    "IsMain": 0,
+    "ProductId": 4
+  },
+  {
+    "Source": "/images/Man43.jpg",
+    "IsMain": 0,
+    "ProductId": 4
+  },
+  {
+    "Source": "/images/Woman 11.webp",
+    "IsMain": 1,
+    "ProductId": 5
+  },
+  {
+    "Source": "/images/Woman 12.webp",
+    "IsMain": 0,
+    "ProductId": 5
+  },
+  {
+    "Source": "/images/Woman 13.webp",
+    "IsMain": 0,
+    "ProductId": 5
+  },
+  {
+    "Source": "/images/Woman 21.webp",
+    "IsMain": 1,
+    "ProductId": 6
+  },
+  {
+    "Source": "/images/Woman 22.webp",
+    "IsMain": 0,
+    "ProductId": 6
+  },
+  {
+    "Source": "/images/Woman 31.webp",
+    "IsMain": 1,
+    "ProductId": 7
+  },
+  {
+    "Source": "/images/Woman 32.webp",
+    "IsMain": 0,
+    "ProductId": 7
+  },
+  {
+    "Source": "/images/Baby 11.webp",
+    "IsMain": 1,
+    "ProductId": 8
+  },
+  {
+    "Source": "/images/Baby 12.webp",
+    "IsMain": 0,
+    "ProductId": 8
+  },
+  {
+    "Source": "/images/Baby 21.webp",
+    "IsMain": 1,
+    "ProductId": 9
+  },
+  {
+    "Source": "/images/Baby 22.webp",
+    "IsMain": 0,
+    "ProductId": 9
+  },
+  {
+    "Source": "/images/Baby 23.webp",
+    "IsMain": 0,
+    "ProductId": 9
+  },
+  {
+    "Source": "/images/Acc 11.webp",
+    "IsMain": 1,
+    "ProductId": 10
+  },
+  {
+    "Source": "/images/Acc 12.webp",
+    "IsMain": 0,
+    "ProductId": 10
+  },
+  {
+    "Source": "/images/Acc 13.webp",
+    "IsMain": 0,
+    "ProductId": 10
+  },
+  {
+    "Source": "/images/Skin 11.webp",
+    "IsMain": 1,
+    "ProductId": 11
+  },
+  {
+    "Source": "/images/Skin 12.webp",
+    "IsMain": 0,
+    "ProductId": 11
+  },
+  {
+    "Source": "/images/Skin 13.webp",
+    "IsMain": 0,
+    "ProductId": 11
+  },
+  {
+    "Source": "/images/Skin 21.webp",
+    "IsMain": 1,
+    "ProductId": 12
+  },
+  {
+    "Source": "/images/Skin 22.webp",
+    "IsMain": 0,
+    "ProductId": 12
+  },
+  {
+    "Source": "/images/Man51.webp",
+    "IsMain": 1,
+    "ProductId": 13
+  },
+  {
+    "Source": "/images/Man52.webp",
+    "IsMain": 0,
+    "ProductId": 13
+  },
+  {
+    "Source": "/images/Man53.webp",
+    "IsMain": 0,
+    "ProductId": 13
+  },
+  {
+    "Source": "/images/Man61.webp",
+    "IsMain": 1,
+    "ProductId": 14
+  },
+  {
+    "Source": "/images/Man62.webp",
+    "IsMain": 0,
+    "ProductId": 14
+  },
+  {
+    "Source": "/images/Man63.webp",
+    "IsMain": 0,
+    "ProductId": 14
+  },
+  {
+    "Source": "/images/Man71.webp",
+    "IsMain": 1,
+    "ProductId": 15
+  },
+  {
+    "Source":"/images/Man72.webp/",
+    "IsMain": 0,
+    "ProductId": 15
+  },
+  {
+    "Source": "/images/Man73.webp",
+    "IsMain": 0,
+    "ProductId": 15
+  },
+  {
+    "Source": "/images/Man82.webp",
+    "IsMain": 1,
+    "ProductId": 16
+  },
+  {
+    "Source": "/images/Man83.webp",
+    "IsMain": 0,
+    "ProductId": 16
+  },
+  {
+    "Source": "/images/Woman 51.webp",
+    "IsMain": 1,
+    "ProductId": 17
+  },
+  {
+    "Source": "/images/Woman 52.webp",
+    "IsMain": 0,
+    "ProductId": 17
+  },
+  {
+    "Source": "/images/Woman 61.webp",
+    "IsMain": 1,
+    "ProductId": 20
+  },
+  {
+    "Source": "/images/Woman 62.webp",
+    "IsMain": 0,
+    "ProductId": 20
+  },
+  {
+    "Source": "/images/Woman 63.webp",
+    "IsMain": 0,
+    "ProductId": 20
+  },
+  {
+    "Source": "/images/Woman 71.webp",
+    "IsMain": 1,
+    "ProductId": 19
+  },
+  {
+    "Source": "/images/Woman 72.webp",
+    "IsMain": 0,
+    "ProductId": 19
+  },
+  {
+    "Source": "/images/Woman 41.webp",
+    "IsMain": 1,
+    "ProductId": 18
+  },
+  {
+    "Source": "/images/Women 42.webp",
+    "IsMain": 0,
+    "ProductId": 18
+  },
+  {
+    "Source": "/images/Women 43.webp",
+    "IsMain": 0,
+    "ProductId": 18
+  },
+  {
+    "Source": "/images/Baby 41.webp",
+    "IsMain": 1,
+    "ProductId": 21
+  },
+  {
+    "Source": "/images/Baby 42.webp",
+    "IsMain": 0,
+    "ProductId": 21
+  },
+  {
+    "Source": "/images/Baby 43.webp",
+    "IsMain": 0,
+    "ProductId": 21
+  },
+  {
+    "Source": "/images/Baby 31.webp",
+    "IsMain": 1,
+    "ProductId": 22
+  },
+  {
+    "Source": "/images/Baby 32.webp",
+    "IsMain": 0,
+    "ProductId": 22
+  },
+  {
+    "Source": "/images/Acc 21.webp",
+    "IsMain": 1,
+    "ProductId": 23
+  },
+  {
+    "Source": "/images/Acc 22.webp",
+    "IsMain": 0,
+    "ProductId": 23
+  },
+  {
+    "Source": "/images/Acc 23.webp",
+    "IsMain": 0,
+    "ProductId": 23
+  },
+  {
+    "Source": "/images/Acc 31.webp",
+    "IsMain": 1,
+    "ProductId": 24
+  },
+  {
+    "Source": "/images/Acc 32.webp",
+    "IsMain": 0,
+    "ProductId": 24
+  },
+  {
+    "Source": "/images/Acc 41.webp",
+    "IsMain": 1,
+    "ProductId": 25
+  },
+  {
+    "Source": "/images/Acc 42.webp",
+    "IsMain": 0,
+    "ProductId": 25
+  },
+  {
+    "Source": "/images/Acc 51.webp",
+    "IsMain": 1,
+    "ProductId": 26
+  },
+  {
+    "Source": "/images/Acc 52.webp",
+    "IsMain": 0,
+    "ProductId": 26
+  },
+  {
+    "Source": "/images/Skin 31.webp",
+    "IsMain": 1,
+    "ProductId": 27
+  }
+]

@@ -1,0 +1,328 @@
+﻿@*  @model IEnumerable<OnlineShoppingApp.Models.Product> *@
+@using OnlineShoppingApp.Helpers
+@using OnlineShoppingApp.ViewModels
+@model ProductViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section Links{
+    <style>
+        .buy-out-of-stock {
+            height: 40px;
+            width: 80px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #fff !important;
+            background: #ed1b24;
+            border-radius: 25px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            text-align: center;
+            -webkit-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            transform: scale(0);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .shop-home-list .single-list .list-image:hover .buy-out-of-stock {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+    </style>
+}
+<!-- Slider Area -->
+<section class="hero-slider">
+    <!-- Single Slider -->
+    <div class="single-slider">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-9 offset-lg-3 col-12">
+                    <div class="text-inner">
+                        <div class="row">
+                            <div class="col-lg-7 col-12">
+                                <div class="hero-text">
+                                    <h1><span style="color:white;">UP TO 50% OFF </span>Shop With Us</h1>
+                                    <p style="color:white;">Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
+                                    <div class="button">
+                                        <a href="#product-area section" style="color:#333; background-color:white;" class="btn">Shop Now!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Single Slider -->
+</section>
+<!--/ End Slider Area -->
+<!-- Start Small Banner  -->
+<!-- End Small Banner -->
+<!-- Start Product Area -->
+<div class="product-area section" id="product-area section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>Trending Item</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="product-info">
+                    <div class="nav-main">
+                        <!-- Tab Nav -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            @for (var i = 0; i < Model.Categories.Count; i++)
+                            {
+                                var category = Model.Categories[i];
+                                var isActive = i == 0 ? "active" : "";
+
+                                <li class="nav-item">
+                                    <a class="nav-link @isActive" data-toggle="tab" href="#@category.Name" role="tab">@category.Name</a>
+                                </li>
+                            }
+                        </ul>
+                        <!--/ End Tab Nav -->
+                    </div>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Start Single Tab -->
+                        @for (var i = 0; i < Model.Categories.Count; i++)
+                        {
+                            var category = Model.Categories[i];
+                            var isActive = i == 0 ? "show active" : "";
+
+                            <div class="tab-pane fade @isActive" id="@category.Name" role="tabpanel">
+                                <div class="tab-single">
+                                    <div class="row">
+                                        @foreach (var item in Model.Products)
+                                        {
+                                            var mainImage = item.Images.FirstOrDefault(p => p.IsMain == 1);
+                                            if (mainImage != null && item.Category.Name == category.Name)
+                                            {
+                                                <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                                    <div class="single-product">
+                                                        <div class="product-img">
+                                                            @* <a href="../Views/Product/GetProduct">
+                                                <img class="default-img" src="@mainImage.Source" alt="#">
+                                                <img class="hover-img" src="@mainImage.Source" alt="#">
+                                                </a>*@
+                                                            <a asp-controller="Product" asp-action="GetProduct" asp-route-id="@item.Id">
+                                                                <img class="default-img" src="@mainImage.Source" alt="#">
+                                                                <img class="hover-img" src="@mainImage.Source" alt="#">
+                                                                @if (item.Quantity == 0)
+                                                                {
+                                                                    <span class="out-of-stock">Sold Out</span>
+                                                                }
+                                                            </a>
+                                                            @if (item.Quantity > 0)
+                                                            {
+
+                                                                <div class="button-head">
+
+                                                                    <div class="product-action-2">
+
+                                                                        @if (UserHelper.LoggedinUserId == 0)
+                                                                        {
+                                                                            <a asp-controller="Account" asp-action="Login">Add to cart</a>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id">Add to cart</a>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                        <div class="product-content">
+                                                            <h3><a asp-controller="Product" asp-action="GetProduct" asp-route-id="@item.Id">@item.Name</a></h3>
+                                                            <div class="product-price">
+                                                                <span>$@item.Price</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!--/ End Single Tab -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Product Area -->
+<!-- End Most Popular Area -->
+
+<section class="section free-version-banner mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 offset-md-2 col-xs-12">
+                <div class="section-title mb-60">
+                    <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Eshop Free Lite version</span>
+                    <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Currently You are using free<br> lite Version of Eshop.</h2>
+                    <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Please, purchase full version of the template to get all pages,<br> features and commercial license.</p>
+
+                    @* <div class="button">
+                    <a href="https://wpthemesgrid.com/downloads/eshop-ecommerce-html5-template/" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Purchase Now</a>
+                    </div> *@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Start Shop Home List  -->
+<div class="shop-home-list section">
+    <div class="container">
+        <div class="col-lg-12 col-md-12 col-12">
+            <!-- Best Seller -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>Best Sellers</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Center the products -->
+                @foreach (var prod in Model?.BestSellerProduct)
+                {
+                    var mainImage = prod.Images.FirstOrDefault(p => p.IsMain == 1);
+                    <div class="col-lg-4 col-md-4 col-12 mb-4">
+                        <!-- Each product card takes 4 columns -->
+                        <div class="single-list">
+                            <div class="list-image overlay">
+
+                                <img src="@mainImage.Source" alt="#">
+                                @if (prod.Quantity == 0)
+                                {
+                                    <a class="buy-out-of-stock"> <span>Sold Out</span></a>
+                                }
+                                else
+                                {
+
+                                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@prod.Id" class="buy">
+                                        <i class="fa fa-shopping-bag"></i>
+                                    </a>
+                                }
+                            </div>
+                            <div class="content">
+                                <h5 class="title">
+                                    <a asp-controller="Product" asp-action="GetProduct" asp-route-id="@prod.Id">@prod.Name</a>
+                                </h5>
+                                <p class="price with-discount">$@prod.Price</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Shop Home List  -->
+<!-- Start Shop Services Area -->
+<section class="shop-services section home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-rocket"></i>
+                    <h4>Free shiping</h4>
+                    <p>Orders over $50</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-reload"></i>
+                    <h4>Pay Cash</h4>
+                    <p>On Delivery</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-lock"></i>
+                    <h4>Sucure Payment</h4>
+                    <p>100% secure payment</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <!-- Start Single Service -->
+                <div class="single-service">
+                    <i class="ti-tag"></i>
+                    <h4>Best Peice</h4>
+                    <p>Guaranteed price</p>
+                </div>
+                <!-- End Single Service -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop Services Area -->
+<!-- Start Shop Newsletter  -->
+<section class="shop-newsletter section">
+    <div class="container">
+        <div class="inner-top">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-12">
+                    <!-- Start Newsletter Inner -->
+                    <div class="inner">
+                        <h4>Newsletter</h4>
+                        <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+                        @*  <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                        <input name="EMAIL" placeholder="Your email address" required="" type="email">
+                        <button class="btn">Subscribe</button>
+                        </form> *@
+                    </div>
+                    <!-- End Newsletter Inner -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Shop Newsletter -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row no-gutters">
+                    <div class="col-lg-6 offset-lg-3 col-12">
+                        <h4 style="margin-top:100px;font-size:14px; font-weight:500; color:#F7941D; display:block; margin-bottom:5px;">Eshop Free Lite</h4>
+                        <h3 style="font-size:30px;color:#333;">
+                            Currently You are using free lite Version of Eshop.<h3>
+                                <p style="display:block; margin-top:20px; color:#888; font-size:14px; font-weight:400;">Please, purchase full version of the template to get all pages, features and commercial license</p>
+                                <div class="button" style="margin-top:30px;">
+                                    <a href="https://wpthemesgrid.com/downloads/eshop-ecommerce-html5-template/" target="_blank" class="btn" style="color:#fff;">Buy Now!</a>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal end -->

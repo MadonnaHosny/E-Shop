@@ -1,0 +1,121 @@
+﻿@using Microsoft.AspNetCore.Identity
+ @model OnlineShoppingApp.ViewModels.ProductViewModel
+
+ @inject UserManager<AppUser> _userManager;
+@{
+    AppUser user = null;
+    IList<string> userRoles = null;
+    string role = ""; // Buyer, Seller, Admin
+    if (User != null)
+    {
+        user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            userRoles = await _userManager.GetRolesAsync(user);
+            role = userRoles.FirstOrDefault();
+        }
+
+    }
+}
+<!-- Header Section -->
+@* <h1>All Products</h1> *@
+<head>
+    <meta charset="utf-8">
+    <title>MultiShop - Online Shop Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/images/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="./lib/animate/animate.min.css" rel="stylesheet">
+    <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="./css/style.css" rel="stylesheet">
+
+
+    <style>
+        .product-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .product-card .card-img-top {
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .no-products {
+            position: relative;
+            left: 342px;
+            top: 28px;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+    <div class="container-fluid pb-5 mt-2">
+        <div class="row px-xl-5">
+            @foreach (var item in Model.Products)
+            {
+                var mainImage = item.Images.FirstOrDefault(p => p.IsMain == 1);
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="product-wrapper">
+                        <div class="card product-card">
+                            <a asp-controller="Product" asp-action="GetProduct" asp-route-id="@item.Id">
+                                <img class="card-img-top" src="@mainImage.Source" alt="Image">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a asp-controller="Product" asp-action="GetProduct" asp-route-id="@item.Id">@item.Name</a>
+                                </h5>
+                                <p class="card-text">$@item.Price</p>
+                                <p class="card-text">@item.Description</p>
+                                <div class="mb-4">
+                                    <h6 class="font-weight-semi-bold d-inline-block">Brand: </h6>
+                                    <p class="d-inline-block">@item.Brand.Name</p>
+                                </div>
+                                @* <a  class="btn btn-primary"> *@
+                                @if (role == "Buyer")
+                                {
+
+                                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-primary " style="background-color: #F7941D !important;"><span style="color:white"><i class="fa fa-shopping-cart mr-1"></i> Add to cart</span></a>
+                                }
+                                @*      </a> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            @if (Model.Products.Count == 0)
+            {
+                <div class="p-3 mb-2 bg-danger text-white no-products" id="error">There are no products with that name. Try something else.</div>
+
+            }
+
+        </div>
+    </div>
+</body>

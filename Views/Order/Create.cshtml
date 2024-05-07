@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Order
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form class="form-group mt-4" action="@Url.Action("PaymentProcess", "Order")">
+    <div class="row">
+        <div class="col-12">
+            <input class="form-control py-3 mt-3" name="nameOnCard" placeholder="Name On Card" />
+        </div>
+        <div class="col-6">
+            <input class="form-control py-3 mt-3" name="cardNumber" />
+        </div>
+        <div class="col-3">
+            <input class="form-control py-3 mt-3" name="cardExpiry" />
+        </div>
+        <div class="col-3">
+            <input class="form-control py-3 mt-3" name="cardCvc" />
+        </div>
+        @* <input type="hidden" name="orderId" value="@Model.Id" /> *@
+    </div>
+
+<div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
+    <button class="btn btn-outline-primary">
+        <i class="fa fa-angle-left"></i> Back to Review
+    </button>
+        <input type="submit" value="Submit order" class="btn btn-outline-primary" />
+         <i class="fa fa-angle-right"></i>
+</div>
+</form>
+
+
+@* <div class="mt-4 form-group" id="checkoutForm">
+    <div class="row">
+        <div class="col-12" formGroupName="paymentForm">
+            <input placeholder="Name on card" name="nameOnCard"/>
+        </div>
+        @* <div class="form-group col-6">
+            <div id="cardNumber" class="form-control py-3"></div>
+            <container>
+                <span class="text-danger">{{cardErrors}}</span>
+            </container>
+        </div>
+        <div class="form-group col-3">
+            <div id="cardExpiry" class="form-control py-3"></div>
+        </div>
+        <div class="form-group col-3">
+            <div id="cardCvc" class="form-control py-3"></div>
+        </div>
+    </div>
+</div> *@

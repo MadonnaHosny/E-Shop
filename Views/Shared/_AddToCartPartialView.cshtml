@@ -1,0 +1,40 @@
+﻿ @model OnlineShoppingApp.Models.Product
+
+<a id="add">Add to cart</a>
+
+@Html.HiddenFor(model => model.Id)
+<input type="hidden" id="product" name="product" value="@Model.Id" />
+
+<script>
+    document.addEventListener("DOMContentLoaded", _ => {
+        document.getElementById('add').addEventListener('click', _ => {
+            let productId = document.getElementById("product").value;
+            fetch(`/Cart/AddToCart/${productId}`, {
+                method: 'GET'
+            })
+                .then(response => {
+                    console.log(response);
+                    return response.text();
+                })
+                .then(data => {
+                    console.log(data);
+                  //  updateNumOfItemCart();
+                })
+                .catch(error => console.log(error));
+        });
+
+        // function updateNumOfItemCart() {
+        //     // fetch('/Cart/GetNumOfItemsInCart', {
+        //     //     method: 'GET'
+        //     // })
+        //     //     .then(response => response.text())
+        //     //     .then(count => {
+        //     //         console.log(count)
+        //     //         document.querySelector('.total-count').textContent = document.querySelector('.total-count').value;
+        //     //     })
+        //     //     .catch(error => console.log(error));
+        //     let count = parseInt(document.querySelector('.total-count').value, 10);
+        //     document.querySelector('.total-count').textContent = ++count;
+        // }
+    });
+</script>

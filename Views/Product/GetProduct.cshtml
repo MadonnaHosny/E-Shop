@@ -1,0 +1,384 @@
+@using OnlineShoppingApp.Extentions
+@using OnlineShoppingApp.Helpers
+ @model OnlineShoppingApp.Models.Product
+
+@{
+    List<Rate> allRates = Model?.Rates;
+}
+@section Links {
+
+    <!-- Favicon -->
+    <link href="/images/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="./lib/animate/animate.min.css" rel="stylesheet">
+    <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="./css/style.css" rel="stylesheet">
+    <style>
+
+        .main-color-back {
+            background-color: #F7941D !important;
+        }
+
+        .main-color {
+            color: #F7941D !important;
+        }
+
+        .color-white {
+            color: white !important;
+        }
+
+        .replies-list {
+            margin-top: 20px; /* Adjust the top margin as needed */
+            padding-left: 30px; /* Adjust the left padding as needed */
+        }
+
+        /* Style for individual reply */
+        .reply-item {
+            border-left: 2px solid #ccc; /* Add a left border for separation */
+            padding-left: 10px; /* Adjust the left padding as needed */
+        }
+        .out-of-stock{
+            background-color: #ed1b24;
+            display: inline-block;
+            font-size: 11px;
+            color: #fff;
+            right: 20px;
+            top: 20px;
+            padding: 1px 16px;
+            font-weight: 700;
+            border-radius: 0;
+            text-align: center;
+            position: absolute;
+            text-transform: uppercase;
+            border-radius: 30px;
+            height: 26px;
+            line-height: 24px;
+            margin: 5px;
+        }
+    </style>
+}
+
+
+
+<!-- Shop Detail Start -->
+<div class="container-fluid pb-5 mt-2">
+    <div class="row px-xl-5">
+
+        <div class="col-lg-5 mb-30">
+            <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner bg-light">
+                    @if (Model.Images != null)
+                    {
+                        int index = 0;
+                        foreach (var item in Model.Images)
+                        {
+                            <div class="carousel-item @(index == 0 ? "active" : "")">
+                                <img class="w-100 h-100" src="@item.Source" alt="Image">
+                            </div>
+                            index++;
+                        }
+                    }
+                    else
+                    {
+                        <p>No images available.</p>
+                    }
+                </div>
+                <a class="carousel-control-prev" href="#product-carousel" role="button" data-slide="prev">
+                    <i class="fa fa-2x fa-angle-left text-dark"></i>
+                </a>
+                <a class="carousel-control-next" href="#product-carousel" role="button" data-slide="next">
+                    <i class="fa fa-2x fa-angle-right text-dark"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-7 h-auto mb-30">
+            <div class="h-100 bg-light p-30 pl-4 pt-4">
+                <h3>@Model.Name</h3>
+                <div class="d-flex mb-3">
+                    <div class="text-primary mr-2">
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            @if (@ViewBag.AvgRating >= i + 1)
+                            {
+                                <small class="fas fa-star main-color"></small>
+                            }
+                            else
+                            {
+                                <small class="far fa-star main-color"></small>
+                            }
+                        }
+                    </div>
+                    <small class="pt-1">(@Model?.Comments?.Count Reviews)</small>
+                </div>
+                <h3 class="font-weight-semi-bold mb-4">$@Model.Price</h3>
+                <p class="mb-4">
+                    @Model.Description
+                </p>
+
+                <div class="mb-4">
+                    <h6 class="font-weight-semi-bold d-inline-block">Category: </h6>
+                    <p class="d-inline-block">@Model.Category.Name</p>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="font-weight-semi-bold d-inline-block">Brand: </h6>
+                    <p class="d-inline-block">@Model.Brand.Name</p>
+                </div>
+
+                <div class="d-flex align-items-center mb-4 pt-2 w-100">
+                    @* <div class="input-group quantity mr-3" style="width: 130px;">
+                    <div class="input-group-btn">
+                    <button class="btn btn-primary btn-minus">
+                    <i class="fa fa-minus"></i>
+                    </button>
+                    </div>
+                    <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
+                    <div class="input-group-btn">
+                    <button class="btn btn-primary btn-plus">
+                    <i class="fa fa-plus"></i>
+                    </button>
+                    </div>
+                    </div> *@
+                    @* <button class="btn px-3 w-50"> *@
+                    @if (UserHelper.LoggedinUserId == 0)
+                    {
+                        <a class="btn px-3 w-50 text-center" asp-controller="Account" asp-action="Login"><i class="fa fa-shopping-cart ms-3" style="color:white;"></i></a>
+
+                    }
+                    else
+                    {
+                        @if (Model.Quantity == 0)
+                        {
+                            <span class="out-of-stock">Sold Out</span>
+                        }
+                        else
+                        {
+                            <a class="btn px-3 w-50 text-center" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Id"><i class="fa fa-shopping-cart ms-3" style="color:white;"></i></a>
+                        }
+
+                    }
+                    @* <partial name="_AddToCartPartialView" model="Model" /> *@
+                    @* </button> *@
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="bg-light p-30">
+                <div class="nav nav-tabs mb-4">
+                    @*  asp-controller="Comments" asp-action="GetAll"
+                    asp-route-prodId="@Model.Products[0].Id" *@
+                    <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
+                    <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a>
+                    @*     <a class="nav-item nav-link text-dark" data-toggle="tab" href="/Comments/GetAll/@Model.Products[0].Id">Reviews</a>
+                    *@
+
+                    <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews(@Model?.Comments?.Count)</a>
+
+                    @*  <form asp-controller="Comments" asp-action="GetAll" method="post">
+                    <input type="hidden" name="prodId" value="@Model.Products[0].Id" />
+                    <button type="submit" class="nav-item nav-link text-dark" data-toggle="tab">Reviews</button>
+                    </form> *@
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active pl-4 pb-4" id="tab-pane-1">
+                        <h4 class="mb-3">Product Description</h4>
+                        <p>@Model.Description</p>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <h4 class="mb-3">Additional Information</h4>
+                        <p>@ViewBag.Seller?.Description</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0">
+                                        <img src="~/UserImage/@ViewBag.Seller.Image" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                        <div class="product-content">
+                                            <a asp-controller="Sellers" asp-action="GetProfileData" asp-route-id="@ViewBag.Seller.Id">@ViewBag.Seller.BusinessName</a>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        @ViewBag.Seller.FirstName &nbsp; @ViewBag.Seller.LastName
+                                    </li>
+
+                                    @* <li class="list-group-item px-0">
+                                    Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                    Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li> *@
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    @*  <li class="list-group-item px-0">
+
+                                    </li> *@
+                                    @* <li class="list-group-item px-0">
+                                    Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                    Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                    Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li> *@
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-3">
+                        <div class="row">
+                            <div class="col-md-6 pl-4">
+                                    @* <h4 class="mb-4">1 review for @Model.Products[0].Name</h4> *@
+                                @if (Model?.Comments != null)
+                                {
+
+                                        @foreach (var comm in Model?.Comments)
+                                        {
+
+                                            <div class="media mb-4">
+                                                @*  <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;"> *@
+                                                <div class="media-body">
+                                                    <h6>@comm.AppUser.FirstName<small> - <i>@comm.Date</i></small></h6>
+
+                                                    @*   @if(i)
+                                            {
+
+                                            } *@
+                                                    @for (int i = 0; i < allRates?.Count; i++)
+                                                    {
+                                                        if (comm.AppUserId == allRates[i]?.BuyerId)
+                                                        {
+                                                            <div class="text-primary mb-2">
+                                                                @for (int j = 0; j < 5; j++)
+                                                                {
+                                                                    @if (allRates[i]?.NumOfStars >= j + 1)
+                                                                    {
+                                                                        <small class="fas fa-star main-color"></small>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <small class="far fa-star main-color"></small>
+                                                                    }
+                                                                }
+                                                            </div>
+
+                                                        }
+                                                    }
+
+                                                    <p>
+                                                        @comm.Text
+                                                    </p>
+                                                 
+                                                        @if (ViewBag.IsSeller == true && ViewBag.Seller.Id == User.GetUserId())
+                                                        {
+                                                            <button class="replyButton" onclick="toggleSellerReply(this)">Reply</button>
+                                                            <div class="form-group sellerReply" style="display:none;">
+                                                                <label for="SellerReplyInput" class="control-label">Enter Your Reply</label>
+                                                                <div>
+
+                                                                    <form asp-controller="Reply" asp-action="InsertReply">
+                                                                        <input type="hidden" id="commentId" name="commentId" value="@comm.Id">
+                                                                        <input type="text" class="form-control" name="enteredText" />
+                                                                        <input type="submit" value="Send Reply" class="submitReplyButton"></input>
+                                                                    </form>
+
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    @if (comm.Replies != null && comm.Replies.Any())
+                                                    {
+                                                        <button class="showRepliesButton" onclick="toggleReplies(this)">Show Replies</button>
+                                                        <ul class="repliesList" style="list-style-type: none; padding-left: 0; display:none;">
+                                                            @foreach (var reply in comm.Replies)
+                                                            {
+                                                                <li class="reply-item">
+                                                                    <div class="media mb-4">
+                                                                        <div class="media-body">
+                                                                            <h6>@reply.AppUser.FirstName<small> - <i>@reply.Date</i></small></h6>
+                                                                            <p>@reply.Text</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    }
+                                                   
+
+
+
+                                                </div>
+
+                                            </div>
+
+                                        }
+                                    }
+                                </div>
+
+                                @if(ViewBag.IsSeller == false)
+                                {
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4">Leave a review</h4>
+                                        @* <small>Your email address will not be published. Required fields are marked *</small> *@
+                                        <div class="d-flex my-3">
+                                            <partial name="_RatingPartialView" model="Model" />
+                                        </div>
+                                        <form asp-controller="Product" asp-action="InsertComment">
+                                            <input type="hidden" id="prodID" name="prodID" value="@Model.Id">
+                                            <div class="form-group">
+                                                <label for="message">Your Review *</label>
+                                                <textarea id="message" cols="30" rows="5" class="form-control" name="review"></textarea>
+                                                @*                                             <span asp-validation-for="m" class="text-danger"></span>
+                                            *@
+                                            </div>
+
+                                            <div class="form-group mb-0">
+                                                <input type="submit" value="Send Your Review" class="btn btn-primary px-3 main-color-back color-white">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                }
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Shop Detail End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+@section Scripts {
+
+    <!-- Contact Javascript File -->
+    <script src="./mail/jqBootstrapValidation.min.js"></script>
+    <script src="./mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+    <script src="~/js/RateProducts.js">
+
+    </script>
+    <script src="~/js/Reply.js"></script>
+}

@@ -1,0 +1,147 @@
+﻿@model OnlineShoppingApp.ViewModels.UpdateSellerProfileViewModel
+
+<link rel="stylesheet" href="~/phone/css/intlTelInput.css">
+
+<link rel="stylesheet" href="~/css/UserProfile/profile.css">
+<link rel="stylesheet" href="~/css/tooltip/tooltip.css">
+
+
+<section id="contact-us" class="contact-us section">
+    <div class="container">
+        <div class="contact-head">
+            <div class="row" style="margin-left: 159px;">
+                <div class="col-lg-10 col-12">
+                    <div class="form-main">
+                        <div class="title">
+                            @*        <h4>Get in touch</h4> *@
+                            @* <h3>Update your profile</h3> *@
+                            <div class="user-image-container ">
+                                <img src="~/UserImage/@Model.Image" asp-append-version="true" alt=" Profile Image" class="user-image">
+
+                            </div>
+
+                        </div>
+                        <form asp-action="Profile" method="post" enctype="multipart/form-data">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="BusinessName" class="control-label">Business Name</label>
+                                        <input asp-for="BusinessName" class="form-control" />
+                                        <span asp-validation-for="BusinessName" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="VAT" class="control-label">VAT</label>
+                                        <input type="number" asp-for="VAT" class="form-control" />
+                                        <span asp-validation-for="VAT" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                                        <input asp-for="PhoneNumber" class="form-control" id="phone"  />
+                                        <br />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                        <input type="hidden" id="phoneNumberCountryCode" asp-for="PhoneNumberDb" value="@Model.PhoneNumberDb" />
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="ImageFile"> Upload Image </label>
+                                        <input type="file" asp-for="ImageFile" />
+                                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label asp-for="PaperFile"> Upload Paper to verify you business </label>
+                                        <partial name="_tooltip" model="Model" />
+                                        <input type="file" asp-for="PaperFile" />
+                                        <span asp-validation-for="PaperFile" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group message">
+                                        <label asp-for="Description" class="control-label">Description</label>
+                                        <textarea asp-for="Description" class="form-control"></textarea>
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12 btn-wrapper">
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary submit-btn" style="left: 259px;bottom: -34px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@*
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Profile" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <img src="~/UserImage/@Model.Image" asp-append-version="true" alt=" Profile Image">
+
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input type="file" asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" id="phone" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                <input type="hidden" id="phoneNumberCountryCode" asp-for="PhoneNumberDb" value="@Model.PhoneNumberDb" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DOB" class="control-label"></label>
+                <input type="date" asp-for="DOB" class="form-control" />
+                <span asp-validation-for="DOB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary submit-btn" />
+            </div>
+
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+ *@
+<script src="~/phone/js/intlTelInput.js"></script>
+
+<script src="~/js/UserProfile/profile.js"></script>

@@ -1,0 +1,28 @@
+﻿ @model OnlineShoppingApp.Models.Product
+
+<style>
+    .star-button {
+        background-color: transparent;
+        border: none;
+        color: #F7941D !important;
+    }
+
+    .star-button:focus {
+        outline: none
+    }
+</style>
+@using (Html.BeginForm("RateProduct", "Product", FormMethod.Post, new { id = "rateProductForm" }))
+{
+    <p class="mb-0 mr-2">Your Rating * :</p>
+    <div class="text-primary">
+        <button type="submit" class="star-button far fa-star" data-value="1"></button>
+        <button type="submit" class="star-button far fa-star" data-value="2"></button>
+        <button type="submit" class="star-button far fa-star" data-value="3"></button>
+        <button type="submit" class="star-button far fa-star" data-value="4"></button>
+        <button type="submit" class="star-button far fa-star" data-value="5"></button>
+    </div>
+
+    @Html.HiddenFor(model => model.Id)
+    <input type="hidden" id="NumOfStars" name="NumOfStars" value="" />
+
+}
